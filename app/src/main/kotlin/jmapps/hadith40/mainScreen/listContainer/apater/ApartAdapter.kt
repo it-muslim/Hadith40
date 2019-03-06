@@ -10,9 +10,11 @@ import jmapps.hadith40.R
 import jmapps.hadith40.mainScreen.listContainer.holder.ApartHolder
 import jmapps.hadith40.mainScreen.listContainer.model.ApartModel
 
-class ApartAdapter(private val context: Context?,
-                   private val apartModel: List<ApartModel>,
-                   private val onItemClicksApart: OnItemClicksApart) : RecyclerView.Adapter<ApartHolder>() {
+class ApartAdapter(
+    private val context: Context?,
+    private val apartModel: List<ApartModel>,
+    private val onItemClicksApart: OnItemClicksApart
+) : RecyclerView.Adapter<ApartHolder>() {
 
     interface OnItemClicksApart {
         fun onItemClickApart(apartHolder: ApartHolder, position: Int)
@@ -27,8 +29,8 @@ class ApartAdapter(private val context: Context?,
         val strContentArabic: String = apartModel[position].contentArabic!!
         holder.tvContentArabicApart.text = strContentArabic
 
-        if(apartModel[position].contentTranslation != null) {
-            val strContentTranslation: String? = apartModel[position].contentTranslation !!
+        if (apartModel[position].contentTranslation != null) {
+            val strContentTranslation: String? = apartModel[position].contentTranslation!!
             holder.tvContentTranslationApart.visibility = View.VISIBLE
             holder.tvContentTranslationApart.text = Html.fromHtml(strContentTranslation)
         } else {

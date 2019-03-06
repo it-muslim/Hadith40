@@ -3,11 +3,13 @@ package jmapps.hadith40.setting
 import android.content.SharedPreferences
 import android.graphics.Color
 
-class SettingsPresenterImpl(private val settingsView: SettingsContract.SettingsView?,
-                            private var editor: SharedPreferences.Editor) : SettingsContract.SettingsPresenter {
+class SettingsPresenterImpl(
+    private val settingsView: SettingsContract.SettingsView?,
+    private var editor: SharedPreferences.Editor
+) : SettingsContract.SettingsPresenter {
 
     override fun setTextSize(size: Int) {
-        settingsView !!.textSize(size)
+        settingsView!!.textSize(size)
         editor.putInt("key_text_size", size).apply()
     }
 
@@ -51,7 +53,7 @@ class SettingsPresenterImpl(private val settingsView: SettingsContract.SettingsV
             }
         }
 
-        settingsView !!.arabicTextColor(Color.argb(255, redColor, greenColor, blueColor))
+        settingsView!!.arabicTextColor(Color.argb(255, redColor, greenColor, blueColor))
         editor.putInt("key_progress_arabic", progress).apply()
         editor.putInt("key_arabic_color", Color.argb(255, redColor, greenColor, blueColor)).apply()
     }
@@ -96,16 +98,16 @@ class SettingsPresenterImpl(private val settingsView: SettingsContract.SettingsV
             }
         }
 
-        settingsView !!.translationTextColor(Color.argb(255, redColor, greenColor, blueColor))
+        settingsView!!.translationTextColor(Color.argb(255, redColor, greenColor, blueColor))
         editor.putInt("key_progress_translation", progress).apply()
         editor.putInt("key_translation_color", Color.argb(255, redColor, greenColor, blueColor)).apply()
     }
 
     override fun isTextTranslationShowing(state: Boolean) {
-        if(state) {
-            settingsView !!.hideTextTranslation()
+        if (state) {
+            settingsView!!.hideTextTranslation()
         } else {
-            settingsView !!.showTextTranslation()
+            settingsView!!.showTextTranslation()
         }
         editor.putBoolean("key_is_text_translation", state).apply()
     }

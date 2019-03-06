@@ -57,9 +57,9 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
         databasePresenter.getMainContent(sectionNumber)
 
         val favoriteState = mPreferences.getBoolean("key_favorite_chapter_$sectionNumber", false)
-        rootView !!.tb_add_favorite.isChecked = favoriteState
+        rootView!!.tb_add_favorite.isChecked = favoriteState
 
-        playerPresenter = PlayerPresenterImpl(context, this, sectionNumber !!, rootView !!.sb_audio_progress)
+        playerPresenter = PlayerPresenterImpl(context, this, sectionNumber!!, rootView!!.sb_audio_progress)
         playerPresenter.initPlayer()
 
         setTextSize()
@@ -67,16 +67,16 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
         setTranslationTextColor()
         isTextTranslate()
 
-        rootView !!.tb_add_favorite.setOnCheckedChangeListener(this)
-        rootView !!.btn_share_content.setOnClickListener(this)
-        rootView !!.tb_play_pause.setOnCheckedChangeListener(this)
-        rootView !!.tb_loop_on_off.setOnCheckedChangeListener(this)
+        rootView!!.tb_add_favorite.setOnCheckedChangeListener(this)
+        rootView!!.btn_share_content.setOnClickListener(this)
+        rootView!!.tb_play_pause.setOnCheckedChangeListener(this)
+        rootView!!.tb_loop_on_off.setOnCheckedChangeListener(this)
 
         return rootView
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        when(buttonView !!.id) {
+        when (buttonView!!.id) {
 
             R.id.tb_add_favorite -> databasePresenter.addRemoveFavorite(isChecked, sectionNumber, mEditor)
 
@@ -97,23 +97,23 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
 
     // Database
     override fun setHadeethNumber(hadeethNumber: String) {
-        rootView !!.tv_hadeeth_number.text = Html.fromHtml(hadeethNumber)
+        rootView!!.tv_hadeeth_number.text = Html.fromHtml(hadeethNumber)
     }
 
     override fun setHadeethTitle(hadeethTitle: String) {
-        rootView !!.tv_hadeeth_title.text = Html.fromHtml(hadeethTitle)
+        rootView!!.tv_hadeeth_title.text = Html.fromHtml(hadeethTitle)
     }
 
     override fun setContentArabic(contentArabic: String) {
-        rootView !!.tv_content_arabic.text = Html.fromHtml(contentArabic)
+        rootView!!.tv_content_arabic.text = Html.fromHtml(contentArabic)
     }
 
     override fun setContentTranslation(contentTranslation: String) {
-        rootView !!.tv_content_translation.text = Html.fromHtml(contentTranslation)
+        rootView!!.tv_content_translation.text = Html.fromHtml(contentTranslation)
     }
 
     override fun setBookmarkState(state: Boolean) {
-        if(state) {
+        if (state) {
             Toast.makeText(context, R.string.favorite_added, Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(context, R.string.favorite_removed, Toast.LENGTH_LONG).show()
@@ -122,24 +122,24 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
 
     // Player
     override fun playButtonState(state: Boolean) {
-        rootView !!.tb_play_pause.isChecked = state
+        rootView!!.tb_play_pause.isChecked = state
     }
 
     override fun loopButtonState(state: Boolean) {
-        if(state) {
+        if (state) {
             Toast.makeText(context, R.string.player_loop_on, Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(context, R.string.player_loop_off, Toast.LENGTH_LONG).show()
         }
-        rootView !!.tb_loop_on_off.isChecked = state
+        rootView!!.tb_loop_on_off.isChecked = state
     }
 
     override fun currentTrackTime(trackTime: String) {
-        rootView !!.tv_current_track_time.text = trackTime
+        rootView!!.tv_current_track_time.text = trackTime
     }
 
     override fun totalTrackTime(trackTime: String) {
-        rootView !!.tv_total_track_time.text = trackTime
+        rootView!!.tv_total_track_time.text = trackTime
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
@@ -151,28 +151,28 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
 
     private fun setTextSize() {
         val textSize = mPreferences.getInt("key_text_size", 16)
-        rootView !!.tv_content_arabic.textSize = textSize.toFloat()
-        rootView !!.tv_content_translation.textSize = textSize.toFloat()
+        rootView!!.tv_content_arabic.textSize = textSize.toFloat()
+        rootView!!.tv_content_translation.textSize = textSize.toFloat()
     }
 
     private fun setArabicTextColor() {
         val arabicColor = mPreferences.getInt("key_arabic_color", Color.argb(255, 0, 0, 0))
-        rootView !!.tv_content_arabic.setTextColor(arabicColor)
+        rootView!!.tv_content_arabic.setTextColor(arabicColor)
     }
 
     private fun setTranslationTextColor() {
         val translationColor = mPreferences.getInt("key_translation_color", Color.argb(255, 0, 0, 0))
-        rootView !!.tv_content_translation.setTextColor(translationColor)
+        rootView!!.tv_content_translation.setTextColor(translationColor)
     }
 
     private fun isTextTranslate() {
 
         val state = mPreferences.getBoolean("key_is_text_translation", false)
 
-        if(state) {
-            rootView !!.tv_content_translation.visibility = View.GONE
+        if (state) {
+            rootView!!.tv_content_translation.visibility = View.GONE
         } else {
-            rootView !!.tv_content_translation.visibility = View.VISIBLE
+            rootView!!.tv_content_translation.visibility = View.VISIBLE
         }
     }
 }

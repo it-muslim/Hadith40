@@ -43,10 +43,12 @@ class BottomSheetSettings : BottomSheetDialogFragment(), View.OnClickListener, C
         rootSettings.cb_showing_text_translation.isChecked = mPreferences.getBoolean("key_is_text_translation", false)
 
         rootSettings.tv_container_arabic_color.setBackgroundColor(
-                mPreferences.getInt("key_arabic_color", Color.argb(255, 0, 0, 0)))
+            mPreferences.getInt("key_arabic_color", Color.argb(255, 0, 0, 0))
+        )
 
         rootSettings.tv_container_translation_color.setBackgroundColor(
-                mPreferences.getInt("key_translation_color", Color.argb(255, 0, 0, 0)))
+            mPreferences.getInt("key_translation_color", Color.argb(255, 0, 0, 0))
+        )
 
         rootSettings.btn_text_size_minus.setOnClickListener(this)
         rootSettings.btn_text_size_plus.setOnClickListener(this)
@@ -64,23 +66,23 @@ class BottomSheetSettings : BottomSheetDialogFragment(), View.OnClickListener, C
         textSize = mPreferences.getInt("key_text_size", 16)
         tv_text_size_counter.text = textSize.toString()
 
-        when(v !!.id) {
+        when (v!!.id) {
             R.id.btn_text_size_minus -> {
-                if(textSize !! > 12) {
-                    settingsPresenter.setTextSize(textSize !! - 1)
+                if (textSize!! > 12) {
+                    settingsPresenter.setTextSize(textSize!! - 1)
                 }
             }
 
             R.id.btn_text_size_plus -> {
-                if(textSize !! < 60) {
-                    settingsPresenter.setTextSize(textSize !! + 1)
+                if (textSize!! < 60) {
+                    settingsPresenter.setTextSize(textSize!! + 1)
                 }
             }
         }
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        when(seekBar !!.id) {
+        when (seekBar!!.id) {
             R.id.sb_text_color_arabic -> {
                 settingsPresenter.setArabicTextColor(progress)
             }
@@ -97,7 +99,7 @@ class BottomSheetSettings : BottomSheetDialogFragment(), View.OnClickListener, C
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        when(buttonView !!.id) {
+        when (buttonView!!.id) {
             R.id.cb_showing_text_translation -> {
                 settingsPresenter.isTextTranslationShowing(isChecked)
             }
