@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:drawableStart="@drawable/ic_settings"
+    android:drawableLeft="@drawable/ic_settings"
+    android:drawablePadding="16dp"
+    android:padding="16dp"
+    android:text="@string/action_nav_settings"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+	
+	<Button
+        android:id="@+id/btn_text_size_minus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/state_minus_pressed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+	
+	<TextView
+        android:id="@+id/tv_head_text_size"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/settings_text_size_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_text_size_minus"
+        app:layout_constraintEnd_toStartOf="@+id/tv_text_size_counter"
+        app:layout_constraintStart_toEndOf="@+id/btn_text_size_minus"
+        app:layout_constraintTop_toTopOf="@+id/btn_text_size_plus" />
+	
+	<TextView
+        android:id="@+id/tv_text_size_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_text_size_minus"
+        app:layout_constraintEnd_toStartOf="@+id/btn_text_size_plus"
+        app:layout_constraintTop_toTopOf="@+id/btn_text_size_plus" />
+	
+	<Button
+        android:id="@+id/btn_text_size_plus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/state_plus_pressed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+	
+	<View
+        android:id="@+id/view_one"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_head_text_size" />
+	
+	<TextView
+        android:id="@+id/tv_text_arabic_color_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/settings_text_arabic_color_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_one" />
+
+	<SeekBar
+			android:id="@+id/sb_text_color_arabic"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginLeft="16dp"
+			android:layout_marginEnd="16dp"
+			android:layout_marginRight="16dp"
+			android:max="1791"
+			app:layout_constraintEnd_toStartOf="@+id/tv_container_arabic_color"
+			app:layout_constraintStart_toStartOf="parent"
+			android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/tv_text_arabic_color_progress"/>
+
+	<TextView
+			android:id="@+id/tv_container_arabic_color"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			app:layout_constraintEnd_toEndOf="parent"
+			android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+			app:layout_constraintTop_toTopOf="@+id/sb_text_color_arabic"
+			app:layout_constraintBottom_toBottomOf="@+id/sb_text_color_arabic"/>
+
+	<TextView
+        android:id="@+id/tv_text_translation_color_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/settings_text_translation_color_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sb_text_color_arabic" />
+	
+	<SeekBar
+        android:id="@+id/sb_text_color_translation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:max="1791"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_showing_text_translation"
+        app:layout_constraintEnd_toStartOf="@+id/tv_container_translation_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cb_showing_text_translation" />
+	
+	<TextView
+        android:id="@+id/tv_container_translation_color"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_showing_text_translation"
+        app:layout_constraintEnd_toStartOf="@+id/cb_showing_text_translation"
+        app:layout_constraintTop_toTopOf="@+id/cb_showing_text_translation" /><CheckBox
+        android:id="@+id/cb_showing_text_translation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:button="@drawable/state_eye_checked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_translation_color_progress" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

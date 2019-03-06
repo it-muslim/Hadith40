@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="500dp"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="fill_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:drawableStart="@drawable/ic_favorite_heart_white"
+        android:drawableLeft="@drawable/ic_favorite_heart_white"
+        android:drawablePadding="16dp"
+        android:padding="16dp"
+        android:text="@string/favorite_title"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorite_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbarThumbVertical="@drawable/thumb_drawable"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/tv_is_favorite_list_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:drawableEnd="@drawable/ic_favorite_heart"
+        android:drawableRight="@drawable/ic_favorite_heart"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/favorite_list_empty"
+        android:textSize="18sp" />
+
+</LinearLayout>
