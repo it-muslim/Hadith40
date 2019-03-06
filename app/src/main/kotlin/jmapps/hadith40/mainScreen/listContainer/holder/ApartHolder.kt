@@ -37,7 +37,6 @@ class ApartHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun isTextTranslate() {
-
         val state = mPreferences.getBoolean("key_is_text_translation", false)
 
         if (state) {

@@ -2,6 +2,7 @@ package jmapps.hadith40.mainScreen.listContainer
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +15,8 @@ import jmapps.hadith40.mainScreen.listContainer.player.ApartPlayerPresenterImpl
 import kotlinx.android.synthetic.main.activity_list.*
 import kotlinx.android.synthetic.main.list_content.*
 
-class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAdapter.OnItemClicksApart {
+class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAdapter.OnItemClicksApart,
+    View.OnClickListener {
 
     private lateinit var databasePresenter: ApartPresenterImpl
     private lateinit var apartPresenterImpl: ApartPlayerPresenterImpl
@@ -32,7 +34,7 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
 
         databasePresenter = ApartPresenterImpl(this, this, currentPosition)
         databasePresenter.getMainContent()
-        apartPresenterImpl = ApartPlayerPresenterImpl(this)
+        apartPresenterImpl = ApartPlayerPresenterImpl(this, databasePresenter.getApartList, rv_apart_list)
 
         rv_apart_list.layoutManager = LinearLayoutManager(this)
         val apartAdapter = ApartAdapter(this, databasePresenter.getApartList, this)
@@ -48,6 +50,8 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
                 super.onScrolled(recyclerView, dx, dy)
             }
         })
+
+        fab_play_items.setOnClickListener(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -61,6 +65,10 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onClick(v: View?) {
+        apartPresenterImpl.playAllTracks(0)
+    }
+
     override fun setHadeethNumber(hadeethNumber: String) {
         tv_hadeeth_number_apart.text = hadeethNumber
     }
@@ -70,6 +78,6 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
     }
 
     override fun onItemClickApart(apartHolder: ApartHolder, position: Int) {
-        apartPresenterImpl.playOnlyTrack(databasePresenter.getApartList, position)
+        apartPresenterImpl.playOnlyTrack(position)
     }
 }

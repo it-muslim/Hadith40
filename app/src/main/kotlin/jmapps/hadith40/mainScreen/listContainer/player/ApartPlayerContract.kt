@@ -6,9 +6,9 @@ interface ApartPlayerContract {
 
     interface Presenter {
 
-        fun playOnlyTrack(apartModel: List<ApartModel>, idPosition: Int)
+        fun playOnlyTrack(position: Int)
 
-        fun playAllTracks(apartModel: List<ApartModel>, idPosition: Int)
+        fun playAllTracks(position: Int)
 
         fun clearPlayer()
     }
