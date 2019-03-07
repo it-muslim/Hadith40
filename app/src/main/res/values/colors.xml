@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="main">#000000</color>
+    <color name="mainSelected">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="lightBlack">#181818</color>
@@ -14,5 +14,5 @@
     <color name="cardPlayer">#1AFFEB3B</color>
     <color name="cardTranslation">#1A4CAF50</color>
 
-    <color name="itemSelected">#0DD81B60</color>
+    <color name="itemSelected">#1AD81B60</color>
 </resources>

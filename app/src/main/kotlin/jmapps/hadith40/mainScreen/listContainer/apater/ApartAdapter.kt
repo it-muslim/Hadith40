@@ -45,7 +45,7 @@ open class ApartAdapter(
         if (currentItem == position) {
             holder.llApartItem.setBackgroundColor(context!!.resources.getColor(R.color.itemSelected))
         } else {
-            holder.llApartItem.setBackgroundColor(context!!.resources.getColor(R.color.white))
+            holder.llApartItem.setBackgroundColor(context!!.resources.getColor(R.color.mainSelected))
         }
 
         holder.setTextSize()

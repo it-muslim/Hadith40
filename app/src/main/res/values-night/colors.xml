@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#181818</color>
     <color name="colorAccent">#00B0FF</color>
 
-    <color name="main">#FFFFFF</color>
+    <color name="mainSelected">#000000</color>
     <color name="cardArabic">#0800B0FF</color>
     <color name="cardPlayer">#089C27B0</color>
     <color name="cardTranslation">#08FF5722</color>
 
-    <color name="itemSelected">#0D00B0FF</color>
+    <color name="itemSelected">#3300B0FF</color>
 </resources>
