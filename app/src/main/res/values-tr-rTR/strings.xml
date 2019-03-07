@@ -1,0 +1,49 @@
+<resources>
+    <!--Main screen-->
+    <string name="action_app_name">40 hadis</string>
+    <string name="action_favorites">Favoriler</string>
+
+    <string name="about_us_text"/>
+
+    <!--List activity-->
+    <string name="action_title">ayrı</string>
+
+    <!--Navigation drawer-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_nav_night_mode">Gece modu</string>
+    <string name="action_nav_apart">ayrı</string>
+    <string name="action_nav_settings">Ayarlar</string>
+    <string name="action_nav_additionally">bunlara ek olarak</string>
+    <string name="action_nav_list_apps"/>
+    <string name="action_nav_about_us"/>
+    <string name="action_nav_rate">oran</string>
+    <string name="action_nav_share">Pay</string>
+    <string name="action_nav_exit">çıkış</string>
+
+    <!--PlaceHolder fragment-->
+    <string name="share_content_to">Kafa paylaşmak</string>
+
+    <!--Fragment chapters-->
+    <string name="chapter_list_title">Bölümlerin listesi</string>
+
+    <!--Fragment favorites-->
+    <string name="favorite_title">Favoriler</string>
+    <string name="favorite_list_empty">Seçili bölüm yok</string>
+
+    <!--Player-->
+    <string name="player_loop_on">Tekrarla</string>
+    <string name="player_loop_off">Tekrar kapalı</string>
+
+    <!--Settings-->
+    <string name="settings_text_size_title">Yazı Boyutu</string>
+    <string name="settings_text_arabic_color_title">Arapça metin rengi</string>
+    <string name="settings_text_translation_color_title">Çeviri metni rengi</string>
+    <string name="settings_text_hide">Metin gizlendi</string>
+    <string name="settings_text_show">Metin gösterilir</string>
+
+    <!--Database-->
+    <string name="db_name">Database_tr</string>
+    <string name="favorite_added">Favorilere eklendi</string>
+    <string name="favorite_removed">Favorilerden kaldırıldı</string>
+</resources>

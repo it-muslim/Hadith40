@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="nav_view">
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="nav_view">
 
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_switch"
-            android:checkable="true"
-            android:icon="@drawable/ic_nav_night"
-            android:title="@string/action_nav_night_mode" />
+                android:id="@+id/nav_switch"
+                android:checkable="true"
+                android:icon="@drawable/ic_nav_night"
+                android:title="@string/action_nav_night_mode"/>
 
         <item
-            android:id="@+id/nav_list"
-            android:icon="@drawable/ic_nav_list"
-            android:title="@string/action_nav_apart" />
+                android:id="@+id/nav_list"
+                android:icon="@drawable/ic_nav_list"
+                android:title="@string/action_nav_apart"/>
 
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_nav_settings"
-            android:title="@string/action_nav_settings" />
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_nav_settings"
+                android:title="@string/action_nav_settings"/>
     </group>
 
     <item android:title="@string/action_nav_additionally">
         <menu>
 
             <item
-                android:id="@+id/nav_list_apps"
-                android:checkable="true"
-                android:icon="@drawable/ic_nav_list_app"
-                android:title="@string/action_nav_list_apps" />
+                    android:id="@+id/nav_list_apps"
+                    android:checkable="true"
+                    android:icon="@drawable/ic_nav_list_app"
+                    android:visible="false"
+                    android:title="@string/action_nav_list_apps"/>
             <item
-                android:id="@+id/nav_about_us"
-                android:checkable="true"
-                android:icon="@drawable/ic_nav_about_us"
-                android:title="@string/action_nav_about_us" />
+                    android:id="@+id/nav_about_us"
+                    android:checkable="true"
+                    android:visible="false"
+                    android:icon="@drawable/ic_nav_about_us"
+                    android:title="@string/action_nav_about_us"/>
             <item
-                android:id="@+id/nav_rate_app"
-                android:icon="@drawable/ic_nav_rate"
-                android:title="@string/action_nav_rate" />
+                    android:id="@+id/nav_rate_app"
+                    android:icon="@drawable/ic_nav_rate"
+                    android:title="@string/action_nav_rate"/>
             <item
-                android:id="@+id/nav_share_link"
-                android:icon="@drawable/ic_nav_share"
-                android:title="@string/action_nav_share" />
-			<item
-                android:id="@+id/nav_exit"
-                android:icon="@drawable/ic_nav_exit"
-                android:title="@string/action_nav_exit" />
+                    android:id="@+id/nav_share_link"
+                    android:icon="@drawable/ic_nav_share"
+                    android:title="@string/action_nav_share"/>
+            <item
+                    android:id="@+id/nav_exit"
+                    android:icon="@drawable/ic_nav_exit"
+                    android:title="@string/action_nav_exit"/>
         </menu>
     </item>
 </menu>

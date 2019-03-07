@@ -1,0 +1,59 @@
+<resources>
+    <!--Main screen-->
+    <string name="action_app_name">40 хадисов</string>
+    <string name="action_favorites">Избранное</string>
+
+    <string name="about_us_text">
+        <b>JMApps</b>
+        — серия бесплатных андроид-приложений для мусульман.
+        Наши приложения всегда будут <b>бесплатными</b> и <b>без</b> какой-либо <b>рекламы</b>.
+        \n\nВы можете следить за обновлением старых и изданием новых приложений в нашей группе в ВКонтакте:
+        www.vk.com/JMApps,
+        \nна нашем канале в Telegram: t.me/JMApps, или в нашей группе в Фейсбуке: www.facebook.com/JMAppsM
+        \nТакже у нас есть страница в Instagram: www.instagram.com/dev_muslim
+        \n\nЕсли же у вас возникнут вопросы, или появятся предложения или критика, можете написать нам
+        на почту: jmappsmuslim@gmail.com, или в Telegram: t.me/JMbikk
+    </string>
+
+    <!--List activity-->
+    <string name="action_title">Раздельно</string>
+
+    <!--Navigation drawer-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_nav_night_mode">Ночной режим</string>
+    <string name="action_nav_apart">Раздельно</string>
+    <string name="action_nav_settings">Настройки</string>
+    <string name="action_nav_additionally">Дополнительно</string>
+    <string name="action_nav_list_apps">Список приложений</string>
+    <string name="action_nav_about_us">О нас</string>
+    <string name="action_nav_rate">Оценить</string>
+    <string name="action_nav_share">Поделиться</string>
+    <string name="action_nav_exit">Выход</string>
+
+    <!--PlaceHolder fragment-->
+    <string name="share_content_to">Поделиться главой</string>
+
+    <!--Fragment chapters-->
+    <string name="chapter_list_title">Список глав</string>
+
+    <!--Fragment favorites-->
+    <string name="favorite_title">Избранное</string>
+    <string name="favorite_list_empty">Избранных глав нет</string>
+
+    <!--Player-->
+    <string name="player_loop_on">Повтор включен</string>
+    <string name="player_loop_off">Повтор отключён</string>
+
+    <!--Settings-->
+    <string name="settings_text_size_title">Размер текста</string>
+    <string name="settings_text_arabic_color_title">Цвет арабского текста</string>
+    <string name="settings_text_translation_color_title">Цвет текста перевода</string>
+    <string name="settings_text_hide">Текст скрыт</string>
+    <string name="settings_text_show">Текст отображается</string>
+
+    <!--Database-->
+    <string name="db_name">Database_ru</string>
+    <string name="favorite_added">Добавлено в избранное</string>
+    <string name="favorite_removed">Удалено из избранного</string>
+</resources>
