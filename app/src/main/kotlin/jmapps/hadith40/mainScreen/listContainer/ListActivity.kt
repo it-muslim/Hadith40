@@ -20,6 +20,7 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
 
     private lateinit var databasePresenter: ApartPresenterImpl
     private lateinit var apartPresenterImpl: ApartPlayerPresenterImpl
+    private var apartAdapter: ApartAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +35,11 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
 
         databasePresenter = ApartPresenterImpl(this, this, currentPosition)
         databasePresenter.getMainContent()
-        apartPresenterImpl = ApartPlayerPresenterImpl(this, databasePresenter.getApartList, rv_apart_list)
+        apartAdapter = ApartAdapter(this, databasePresenter.getApartList, this)
+        apartPresenterImpl =
+            ApartPlayerPresenterImpl(this, databasePresenter.getApartList, rv_apart_list, apartAdapter!!)
 
         rv_apart_list.layoutManager = LinearLayoutManager(this)
-        val apartAdapter = ApartAdapter(this, databasePresenter.getApartList, this)
         rv_apart_list.adapter = apartAdapter
 
         rv_apart_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -54,6 +56,11 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
         fab_play_items.setOnClickListener(this)
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        apartPresenterImpl.clearPlayer()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item!!.itemId) {
@@ -63,6 +70,11 @@ class ListActivity : AppCompatActivity(), ApartContract.ListContentView, ApartAd
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        apartPresenterImpl.clearPlayer()
     }
 
     override fun onClick(v: View?) {

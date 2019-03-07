@@ -3,12 +3,14 @@ package jmapps.hadith40.mainScreen.listContainer.player
 import android.content.Context
 import android.media.MediaPlayer
 import androidx.recyclerview.widget.RecyclerView
+import jmapps.hadith40.mainScreen.listContainer.apater.ApartAdapter
 import jmapps.hadith40.mainScreen.listContainer.model.ApartModel
 
 class ApartPlayerPresenterImpl(
     private val context: Context?,
     private var apartModel: List<ApartModel>,
-    private val rvApart: RecyclerView
+    private val rvApartList: RecyclerView,
+    private var apartAdapter: ApartAdapter
 ) :
     ApartPlayerContract.Presenter, MediaPlayer.OnCompletionListener {
 
@@ -21,6 +23,8 @@ class ApartPlayerPresenterImpl(
             "${apartModel[position].nameAudio}", "raw", "jmapps.hadith40"
         )
         player = MediaPlayer.create(context, resID)
+        rvApartList.smoothScrollToPosition(position)
+        apartAdapter.onItemSelected(position)
         player!!.start()
     }
 
@@ -33,8 +37,11 @@ class ApartPlayerPresenterImpl(
         if (audioIndex < apartModel.size - 1) {
             playOnlyTrack(audioIndex++)
             playOnlyTrack(audioIndex)
-            rvApart.smoothScrollToPosition(audioIndex + 1)
             player!!.setOnCompletionListener(this)
+        } else {
+            audioIndex = 0
+            rvApartList.smoothScrollToPosition(audioIndex)
+            apartAdapter.onItemSelected(-1)
         }
     }
 

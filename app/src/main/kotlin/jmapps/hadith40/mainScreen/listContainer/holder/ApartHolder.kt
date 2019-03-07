@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.item_apart.view.*
 
 class ApartHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+    val llApartItem = itemView.apart_item
     val tvContentArabicApart = itemView.tv_content_arabic_apart!!
     val tvContentTranslationApart = itemView.tv_content_translation_apart!!
     private val mPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(itemView.context)

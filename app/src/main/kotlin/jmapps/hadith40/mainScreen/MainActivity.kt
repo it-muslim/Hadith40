@@ -14,11 +14,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Switch
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
+import androidx.viewpager.widget.ViewPager
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.navigation.NavigationView
@@ -33,7 +35,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,
-    ChaptersFragment.ClickToCurrentPosition, FavoritesFragment.ClickToCurrentPosition {
+    ChaptersFragment.ClickToCurrentPosition, FavoritesFragment.ClickToCurrentPosition, ViewPager.OnPageChangeListener {
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     private lateinit var dbAssetHelper: DBAssetHelper
@@ -81,6 +83,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 fab_main_chapters.show()
             }
         })
+
+        main_container.addOnPageChangeListener(this)
 
         nav_view.menu.findItem(R.id.nav_switch).actionView = Switch(this)
         nightMode = nav_view.menu.findItem(R.id.nav_switch).actionView as Switch
@@ -149,6 +153,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onPageScrollStateChanged(state: Int) {
+    }
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+    }
+
+    override fun onPageSelected(position: Int) {
+        if (position != -1) {
+            Toast.makeText(this, "Yes yes yes", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onClick(v: View?) {

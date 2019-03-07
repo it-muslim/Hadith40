@@ -7,4 +7,6 @@
     <color name="cardArabic">#0800B0FF</color>
     <color name="cardPlayer">#089C27B0</color>
     <color name="cardTranslation">#08FF5722</color>
+
+    <color name="itemSelected">#0D00B0FF</color>
 </resources>

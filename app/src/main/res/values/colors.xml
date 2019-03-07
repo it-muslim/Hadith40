@@ -12,4 +12,6 @@
     <color name="cardArabic">#1AD81B60</color>
     <color name="cardPlayer">#1AFFEB3B</color>
     <color name="cardTranslation">#1A4CAF50</color>
+
+    <color name="itemSelected">#0DD81B60</color>
 </resources>
