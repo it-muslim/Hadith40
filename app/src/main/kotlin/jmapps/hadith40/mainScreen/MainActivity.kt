@@ -14,7 +14,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Switch
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -84,7 +83,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         })
 
-        main_container.addOnPageChangeListener(this)
+        main_container.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+            }
+
+        })
+
+
 
         nav_view.menu.findItem(R.id.nav_switch).actionView = Switch(this)
         nightMode = nav_view.menu.findItem(R.id.nav_switch).actionView as Switch
@@ -163,9 +176,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onPageSelected(position: Int) {
-        if (position != -1) {
-            Toast.makeText(this, "Yes yes yes", Toast.LENGTH_LONG).show()
-        }
+
     }
 
     override fun onClick(v: View?) {

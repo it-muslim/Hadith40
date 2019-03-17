@@ -49,6 +49,8 @@ class ApartPlayerPresenterImpl(
         if (player != null) {
             player!!.stop()
             player!!.reset()
+            player!!.release()
+            player = null
         }
     }
 }

@@ -10,23 +10,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
+import android.widget.SeekBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import jmapps.hadith40.R
 import jmapps.hadith40.database.DatabaseContract
 import jmapps.hadith40.database.DatabasePresenterImpl
-import jmapps.hadith40.mainScreen.player.PlayerContract
-import jmapps.hadith40.mainScreen.player.PlayerPresenterImpl
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 @Suppress("DEPRECATION")
 class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, CompoundButton.OnCheckedChangeListener,
-    View.OnClickListener, PlayerContract.PlayerView, SharedPreferences.OnSharedPreferenceChangeListener {
+    View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener, SeekBar.OnSeekBarChangeListener {
 
     private var rootView: View? = null
     private var sectionNumber: Int? = null
+
     private lateinit var databasePresenter: DatabasePresenterImpl
-    private lateinit var playerPresenter: PlayerPresenterImpl
+
     private lateinit var mPreferences: SharedPreferences
     private lateinit var mEditor: SharedPreferences.Editor
 
@@ -59,9 +59,6 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
         val favoriteState = mPreferences.getBoolean("key_favorite_chapter_$sectionNumber", false)
         rootView!!.tb_add_favorite.isChecked = favoriteState
 
-        playerPresenter = PlayerPresenterImpl(context, this, sectionNumber!!, rootView!!.sb_audio_progress)
-        playerPresenter.initPlayer()
-
         setTextSize()
         setArabicTextColor()
         setTranslationTextColor()
@@ -70,6 +67,7 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
         rootView!!.tb_add_favorite.setOnCheckedChangeListener(this)
         rootView!!.btn_share_content.setOnClickListener(this)
         rootView!!.tb_play_pause.setOnCheckedChangeListener(this)
+        rootView!!.sb_audio_progress.setOnSeekBarChangeListener(this)
         rootView!!.tb_loop_on_off.setOnCheckedChangeListener(this)
 
         return rootView
@@ -80,9 +78,9 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
 
             R.id.tb_add_favorite -> databasePresenter.addRemoveFavorite(isChecked, sectionNumber, mEditor)
 
-            R.id.tb_play_pause -> playerPresenter.playTrack(isChecked)
+            R.id.tb_play_pause -> return
 
-            R.id.tb_loop_on_off -> playerPresenter.loopTrack(isChecked)
+            R.id.tb_loop_on_off -> return
         }
     }
 
@@ -92,7 +90,6 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
 
     override fun onDestroyView() {
         super.onDestroyView()
-        playerPresenter.clearPlayer()
     }
 
     // Database
@@ -120,27 +117,17 @@ class PlaceholderFragment : Fragment(), DatabaseContract.MainContentView, Compou
         }
     }
 
-    // Player
-    override fun playButtonState(state: Boolean) {
-        rootView!!.tb_play_pause.isChecked = state
-    }
-
-    override fun loopButtonState(state: Boolean) {
-        if (state) {
-            Toast.makeText(context, R.string.player_loop_on, Toast.LENGTH_LONG).show()
-        } else {
-            Toast.makeText(context, R.string.player_loop_off, Toast.LENGTH_LONG).show()
+    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        if (fromUser) {
         }
-        rootView!!.tb_loop_on_off.isChecked = state
     }
 
-    override fun currentTrackTime(trackTime: String) {
-        rootView!!.tv_current_track_time.text = trackTime
+    override fun onStartTrackingTouch(seekBar: SeekBar?) {
     }
 
-    override fun totalTrackTime(trackTime: String) {
-        rootView!!.tv_total_track_time.text = trackTime
+    override fun onStopTrackingTouch(seekBar: SeekBar?) {
     }
+
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         setArabicTextColor()
